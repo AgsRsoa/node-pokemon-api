@@ -21,7 +21,7 @@ const privateKey = require('../auth/private_key')
                 }
 
                 //JWT
-                const token = jwt.sign({userId: user.id},privateKey,{expiresIn:'24'})
+                const token = jwt.sign({userId: user.id},privateKey,{expiresIn:86400})
 
                 const message = "L'utilisateur a été connecté avec succès";
                 return res.json({message:message, data:user, token })
