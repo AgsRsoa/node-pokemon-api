@@ -2,6 +2,7 @@ const express = require('express') //prends express dans node_modules
 const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const sequelize = require('./src/db/sequelize')
+const cors = require ('cors') //rendre API accessible aux app exterieures
 
 
 
@@ -11,6 +12,7 @@ const port = process.env.PORT || 3000
 app
 .use(favicon(__dirname + '/favicon.ico'))
 .use(bodyParser.json()) //parse automatiquement les cc reçues de toutes les requêtes en JSON
+.use(cors())
 
 sequelize.initDb()
 
