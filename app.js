@@ -5,7 +5,7 @@ const sequelize = require('./src/db/sequelize')
 const cors = require ('cors') //rendre API accessible aux app exterieures
 
 const corsOptions = {
-    origin: 'https://preview-1632138.playcode.io',
+    origin:'*' , //'https://preview-1632138.playcode.io'
     optionsSuccessStatus: 200
     
 };
