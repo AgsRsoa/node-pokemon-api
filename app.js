@@ -4,15 +4,20 @@ const bodyParser = require('body-parser')
 const sequelize = require('./src/db/sequelize')
 const cors = require ('cors') //rendre API accessible aux app exterieures
 
+const corsOptions = {
+    origin: 'https://preview-1632138.playcode.io',
+    optionsSuccessStatus: 200
+    
+};
 
-
+  
 const app = express()//serveur web de l'API Rest, nouvelle instance express
 const port = process.env.PORT || 3000
 
 app
 .use(favicon(__dirname + '/favicon.ico'))
 .use(bodyParser.json()) //parse automatiquement les cc reçues de toutes les requêtes en JSON
-.use(cors())
+.use(cors(corsOptions))
 
 sequelize.initDb()
 
